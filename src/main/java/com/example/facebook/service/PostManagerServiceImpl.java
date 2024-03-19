@@ -50,8 +50,7 @@ public class PostManagerServiceImpl implements PostManagerService {
                 .flatMap(account -> account.getPosts().stream())
                 .flatMap(post -> post.getComments().stream())
                 .findFirst()
-                .orElseThrow();
-
+                .orElseThrow(() -> new RuntimeException("CHANGE2"));
         return null;
     }
 
